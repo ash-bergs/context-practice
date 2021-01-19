@@ -70,6 +70,8 @@ const styles = theme => ({
         paddingBottom: theme.spacing.unit,
         paddingLeft: theme.spacing.unit * 10,
         transition: theme.transitions.create("width"), 
+        // making transitions this way is very simple 👆
+        // we're basically say theme.transitions make me a transition for "width"
         width: "100%", 
         [theme.breakpoints.up("sm")]: {
             width: 120, 
