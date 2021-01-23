@@ -43,7 +43,7 @@ const styles = theme => ({
         marginLeft: 0,
         width: "100%", 
         [theme.breakpoints.up("sm")]: {
-            marginLeft: theme.spacing.unit, 
+            marginLeft: theme.spacing(1), 
             width: "auto"
         },
         "&:hover": {
@@ -52,7 +52,7 @@ const styles = theme => ({
         }, 
     }, 
     searchIcon: {
-        width: theme.spacing.unit * 9, 
+        width: theme.spacing(9), 
         height: "100%", 
         // all of this aligns the icon both vertically and horizontally 👇
         position: "absolute", 
@@ -65,10 +65,10 @@ const styles = theme => ({
         width: "100%"
     }, 
     inputInput: {
-        paddingTop: theme.spacing.unit,
-        paddingRight: theme.spacing.unit,
-        paddingBottom: theme.spacing.unit,
-        paddingLeft: theme.spacing.unit * 10,
+        paddingTop: theme.spacing(1),
+        paddingRight: theme.spacing(1),
+        paddingBottom: theme.spacing(1),
+        paddingLeft: theme.spacing(10),
         transition: theme.transitions.create("width"), 
         // making transitions this way is very simple 👆
         // we're basically say theme.transitions make me a transition for "width"
@@ -84,3 +84,22 @@ const styles = theme => ({
 }); 
 
 export default styles; 
+
+//? Sticking Point: I was getting a persistent error in my console, related to the Material UI `theme.spacing.unit` being deprecated 
+/* 
+After some initial googling I found that Material UI v4 addresses this issue - 
+
+* Basic spacing unit
+v3 theme.spacing.unit
+v4 theme.spacing(1)
+
+* Reducing spacing
+v3 theme.spacing.unit / 5
+v4 theme.spacing(1/5)
+
+* Extending spacing
+v3 theme.spacing.unit * 5
+v4 theme.spacing(5)
+
+Warning gone! 😀
+*/
